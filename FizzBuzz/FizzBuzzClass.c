@@ -1,5 +1,6 @@
 #include <string.h>
 #include<stdio.h>
+#include <stdbool.h>
 
 int main()
 {
@@ -43,16 +44,23 @@ printf("\n");
 printf("FizzBee: \n");
 for (int i = minrange;i <= maxrange; i++)
 {
-    printf("%d : \n", i);
+    bool hasDivisions = false;
     for (int b = 0; b < arraysize; b++)
     {
         if (i % FizzBeeDivision[b] == 0)
         {
-            printf(" %s \n", FizzBee[b]);
+            printf("%s", FizzBee[b]);
+            hasDivisions = true;
         } 
     }
+    if (hasDivisions == false)
+    {
+        printf("%d \n", i);  
+    }
+    else
+    {
+        printf("\n");
+    }    
 }
-
-
 return 0;
 }
